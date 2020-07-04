@@ -38,12 +38,12 @@ public class Node {
     public void saveEV() {
         Collections.sort(words);
         String file = new File("data/English-Vietnamese").getAbsolutePath();
-        try (FileWriter fileWriter = new FileWriter(file,true);
+        try (FileWriter fileWriter = new FileWriter(file, true);
              PrintWriter pw = new PrintWriter(fileWriter)) {
             pw.append(key + " :");
             String lastWord = words.getLast();
             for (String s : words)
-                if(s != lastWord)
+                if (s != lastWord)
                     pw.append(" " + s + ",");
                 else
                     pw.append(" " + s);
@@ -52,17 +52,18 @@ public class Node {
             System.out.println(e);
         }
     }
-    public void saveVE(){
+
+    public void saveVE() {
         Collections.sort(words);
         String file = new File("data/Vietnamese-English").getAbsolutePath();
-        try (FileWriter fileWriter = new FileWriter(file,true);
+        try (FileWriter fileWriter = new FileWriter(file, true);
              PrintWriter pw = new PrintWriter(fileWriter)) {
 
             pw.append(key + " :");
             String lastWord = words.getLast();
             for (String s : words)
-                if(s != lastWord)
-                pw.append(" " + s + ",");
+                if (s != lastWord)
+                    pw.append(" " + s + ",");
                 else
                     pw.append(" " + s);
             pw.append('\n');

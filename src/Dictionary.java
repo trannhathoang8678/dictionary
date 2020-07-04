@@ -12,32 +12,30 @@ public class Dictionary {
         try (FileReader fileReader1 = new FileReader(file1);
              BufferedReader bf1 = new BufferedReader(fileReader1);
              FileReader fileReader2 = new FileReader(file2);
-             BufferedReader bf2 = new BufferedReader(fileReader2);
+             BufferedReader bf2 = new BufferedReader(fileReader2)
         ) {
             String s;
             Node node = new Node();
             while ((s = bf1.readLine()) != null) {
-                String words1[] = s.split(":");
+                String[] words1 = s.split(":");
                 node = new Node();
                 node.setKey(words1[0].trim());
                 words1[1] = words1[1].trim();
-                String words[] = words1[1].split(",");
-                for (int i = 0; i < words.length; i++)
-                {
+                String[] words = words1[1].split(",");
+                for (int i = 0; i < words.length; i++) {
                     node.add(words[i].trim());
                 }
                 listEV.add(node);
             }
             while ((s = bf2.readLine()) != null) {
-                String words1[] = s.split(":");
+                String[] words1 = s.split(":");
                 node = new Node();
                 node.setKey(words1[0].trim());
                 words1[1] = words1[1].trim();
-                String words[] = words1[1].split(",");
-                for (int i = 0; i < words.length; i++)
-                    {
-                        node.add(words[i].trim());
-                    }
+                String[] words = words1[1].split(",");
+                for (int i = 0; i < words.length; i++) {
+                    node.add(words[i].trim());
+                }
                 listVE.add(node);
             }
         } catch (FileNotFoundException e) {
