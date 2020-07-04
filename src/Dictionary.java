@@ -17,26 +17,26 @@ public class Dictionary {
             String s;
             Node node = new Node();
             while ((s = bf1.readLine()) != null) {
-                String words[] = s.split(" ");
+                String words1[] = s.split(":");
                 node = new Node();
-                node.setKey(words[0]);
-                for (int i = 2; i < words.length; i++)
-                    if (i < (words.length - 1)) {
-                        node.add(words[i].substring(0, words[i].length() - 1));
-                    } else {
-                        node.add(words[i]);
-                    }
+                node.setKey(words1[0].trim());
+                words1[1] = words1[1].trim();
+                String words[] = words1[1].split(",");
+                for (int i = 0; i < words.length; i++)
+                {
+                    node.add(words[i].trim());
+                }
                 listEV.add(node);
             }
             while ((s = bf2.readLine()) != null) {
-                String words[] = s.split(" ");
+                String words1[] = s.split(":");
                 node = new Node();
-                node.setKey(words[0]);
-                for (int i = 2; i < words.length; i++)
-                    if (i < (words.length - 1)) {
-                        node.add(words[i].substring(0, words[i].length() - 1));
-                    } else {
-                        node.add(words[i]);
+                node.setKey(words1[0].trim());
+                words1[1] = words1[1].trim();
+                String words[] = words1[1].split(",");
+                for (int i = 0; i < words.length; i++)
+                    {
+                        node.add(words[i].trim());
                     }
                 listVE.add(node);
             }
@@ -91,9 +91,10 @@ public class Dictionary {
                         break;
                     }
                 if (!check) {
-                    Node newNode = listEV.get(cnt);
+                    Node newNode = listVE.get(cnt);
                     newNode.add(value);
-                    listEV.set(cnt, newNode);
+                    listVE.set(cnt, newNode);
+
                 }
             }
             break;
