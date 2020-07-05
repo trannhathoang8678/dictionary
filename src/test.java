@@ -16,16 +16,22 @@ public class test {
             key = sc.nextLine();
             key = key.toLowerCase();
             key = key.trim();
-            System.out.print("Meaning: ");
+            System.out.println("Write number of meanings: ");
+            int numberMeanings = sc.nextInt();
             value = sc.nextLine();
-            value = value.toLowerCase();
-            value = value.trim();
-            if (type == 1) {
-                dictionary.addEV(key, value);
-                dictionary.addVE(value, key);
-            } else {
-                dictionary.addVE(key, value);
-                dictionary.addEV(value, key);
+            for (int j = 0; j < numberMeanings; j++) {
+                System.out.print("Meaning " + (j + 1) + ": ");
+
+                value = sc.nextLine();
+                value = value.toLowerCase();
+                value = value.trim();
+                if (type == 1) {
+                    dictionary.addEV(key, value);
+                    dictionary.addVE(value, key);
+                } else {
+                    dictionary.addVE(key, value);
+                    dictionary.addEV(value, key);
+                }
             }
         }
         dictionary.save();

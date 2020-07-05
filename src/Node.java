@@ -22,6 +22,10 @@ public class Node {
         return key;
     }
 
+    public void setKey(String key) {
+        this.key = key;
+    }
+
     public LinkedList<String> getWords() {
         return words;
     }
@@ -29,11 +33,6 @@ public class Node {
     public void add(String word) {
         words.add(word);
     }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
 
     public void saveEV() {
         Collections.sort(words);

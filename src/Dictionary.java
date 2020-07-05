@@ -1,4 +1,7 @@
 import java.io.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 
 public class Dictionary {
@@ -64,10 +67,12 @@ public class Dictionary {
                     newNode.add(value);
                     listEV.set(cnt, newNode);
                 }
+                break;
             }
-            break;
+
         }
         if (!exist) {
+
             Node newNode = new Node();
             newNode.setKey(key);
             newNode.add(value);
@@ -94,8 +99,9 @@ public class Dictionary {
                     listVE.set(cnt, newNode);
 
                 }
+                break;
             }
-            break;
+
         }
         if (!exist) {
             Node newNode = new Node();
@@ -114,6 +120,20 @@ public class Dictionary {
         } catch (IOException e) {
             System.out.println(e);
         }
+        Collections.sort(listEV, new Comparator<Node>() {
+                    @Override
+                    public int compare(Node node, Node t1) {
+                        return node.getKey().compareTo(t1.getKey());
+                    }
+                }
+        );
+        Collections.sort(listVE, new Comparator<Node>() {
+                    @Override
+                    public int compare(Node node, Node t1) {
+                        return node.getKey().compareTo(t1.getKey());
+                    }
+                }
+        );
         for (Node node : listEV)
             node.saveEV();
         for (Node node : listVE)
