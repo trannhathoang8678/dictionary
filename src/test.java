@@ -9,6 +9,7 @@ public class test {
         int number = sc.nextInt();
         System.out.println("Write 1 for Endlish - Vietnamese and 0 for Vietnamese - English vocabulary");
         for (int i = 0; i < number; i++) {
+            System.out.println("Vocabulary " + (i+1) );
             System.out.println("Type of vocabulary (Number): ");
             int type = sc.nextInt();
             System.out.print("Word: ");
